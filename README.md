@@ -34,6 +34,5 @@ It must contained some embedded R code that gets run when slidifying the documen
 
 Notice to publish your slidify presentation to github, there's the publish command. This link outlines how to do it (it's one line). 
 
-[http://slidify.org/publish.html]
-
+http://slidify.org/publish.html
 You can also do it manually, though your github branch must have a .nojekyll fle and be on a branch names gh-pages. There's more on gh-pages here https://pages.github.com/ though remember the slidify publish command takes care of this for you if you'd like.
