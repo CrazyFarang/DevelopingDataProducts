@@ -1,0 +1,73 @@
+---
+title       : Body Mass Index Classification in Adults
+subtitle    : Developing Data Products - Shiny
+author      : 
+job         : Crazy Farang
+framework   : io2012    # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+ext_widgets : {rCharts: [libraries/HighCharts]}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+### Intro & Motivation
+
+Body Mass Index (BMI) is a simple index of weight-for-height that is commonly used to classify underweight, overweight and obesity in adults. It is defined as the weight in kilograms divided by the square of the height in metres (kg/m2).  
+Key facts:  
+* Worldwide obesity has nearly doubled since 1980.  
+* In 2008, more than 1.4 billion adults, 20 and older, were overweight. Of these over 200 million men and nearly 300 million women were obese.  
+* 35% of adults aged 20 and over were overweight in 2008, and 11% were obese.  
+* 65% of the world's population live in countries where overweight and obesity kills more people than underweight. More than 40 million children under the age of 5 were overweight or obese in 2012.  
+* Obesity is preventable.[WHO Obesity and Overweight Factwheet](http://www.who.int/mediacentre/factsheets/fs311/en/)  
+Good Nutrition and regular phisical activity are vital for good health and disease prevention. Overweight and obesity are serious and costly health problem worldwide; it's very important people to be informed and aware of overweight and obesity trends.
+
+
+--- .class #id 
+
+## Shiny App: BMIApp
+
+<div style='text-align: center;'>
+    <img src='assets/img/Snap1.jpg' />
+</div>   
+[BMI Classification in Adults App Hosted by shinyapps.io](https://crazyfarang.shinyapps.io/BMIApp/)  
+
+---
+
+## Features
+
+Enter your weight, height, gender and country of origin and get informed!
+
+```{r echo=FALSE,results='asis',message=FALSE}
+require(rCharts)
+BMICrude<-read.csv("assets/data/dataverbose.csv")
+temp<-subset(BMICrude,BMICrude$countrycode=="USA",select=c("yearcode","numeric","sexdisplay"))
+temp<-temp[order(c(temp$yearcode,temp$gender)),]
+names(temp)<-c("Year","MeanBMI","Gender")
+hp1 <- hPlot(x = "Year", y = "MeanBMI",group="Gender", data = temp, type = "line")
+hp1$print('chart1')
+```
+
+*Plot: Mean body mass index(crude estimate) trend by gender in USA*  
+[Github Repository](https://github.com/CrazyFarang/DevelopingDataProducts)
+
+---
+
+## Features
+
+*Plot: BMI indicators in USA - Georgia*  
+```{r echo=FALSE,results='asis',message=FALSE}
+require(rCharts)
+require(xlsx)
+require(reshape2)
+USState<-read.xlsx("assets/data/USStates.xlsx",header=TRUE,sheetIndex=1)
+USStatesData<-melt(USState,id.vars="State")
+names(USStatesData)<-c("State","Indicator","Value")
+tempUS<-subset(USStatesData,USStatesData$State=="Georgia")
+hb2 = hPlot(x = "Indicator", y = "Value", data = tempUS, type = "bar")
+hb2$print('chart2')
+```
+
+**THINK** POSITIVELY, **EXERCISE** DAILY, **EAT** HEALTHY, **WORK** HARD, **STAY** STRONG, **BUILD** FAITH, **WORRY** LESS, **LOVE** MORE & **BE** HAPPY! :)  
+Your comments and questions are welcome. Please report bugs. [crazyfarangm@gmail.com]
