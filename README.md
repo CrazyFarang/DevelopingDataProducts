@@ -3,6 +3,8 @@ Developing Data Products - Peer Assesment Projects
 
 ### Shiny Application
 
+You can access my app here: https://crazyfarang.shinyapps.io/BMIApp/
+
 Write a shiny application with associated supporting documentation. The documentation should be thought of as whatever a user will need to get started using your application.
 Deploy the application on Rstudio's shiny server
 Share the application link by pasting it into the text box below
@@ -17,6 +19,8 @@ The documentation should be at the Shiny website itself. Do not post to an exter
 The Shiny application in question is entirely up to you. However, if you're having trouble coming up with ideas, you could start from the simple prediction algorithm done in class and build a new algorithm on one of the R datasets packages. Please make the package simple for the end user, so that they don't need a lot of your prerequisite knowledge to evaluate your application. You should emphasize a simple project given the short time frame.  
 
 ### Reproducible Pitch Presentation
+
+**BMIPitch Repository** http://crazyfarang.github.io/BMIPitch/index.html
 
 OK, you've made your shiny app, now it's time to make your pitch. You get 5 slides (inclusive of the title slide)  to pitch a your app. You're going to create a web page using Slidify with an html5 slide deck.
 
