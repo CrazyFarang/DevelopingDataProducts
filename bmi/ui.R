@@ -1,3 +1,4 @@
+library(rCharts)
 library(shiny)
 library(datasets)
 library(ISOcodes)
@@ -48,7 +49,6 @@ shinyUI(pageWithSidebar(
                                  h5('Recent BMI Indicators'),
                                  p("Plotted data are for your gender for your specific country"),
                                  p("If there are no data for your gender, plotted data are for adults for your specific country"),
-                                 #verbatimTextOutput("oicountry"),
                                  verbatimTextOutput("oiPlotYear"),
                                  showOutput("Plot1","highcharts"),
                                  p("Worldwide Data: ", a("KNOEMA-WHO Global Database on Body Mass Index (BMI)", href = "http://knoema.com/WHOGDOBMIMay/who-global-database-on-body-mass-index-bmi"))

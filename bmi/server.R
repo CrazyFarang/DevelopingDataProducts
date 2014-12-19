@@ -125,8 +125,6 @@ shinyServer(
                         isolate(datap<-BMICatPlot(input$country,input$gender,input$state))
                         hb1 = hPlot(x = "Indicator", y = "Value", data = datap, type = "bar")
                         hb1$addParams(dom ='Plot1')
-                        #np1 <- nPlot(Value~Indicator,type="discreteBarChart",data=datap)
-                        #np1$addParams(dom ='Plot1')
                         return(hb1)
                 })
                 output$Plot2 <- renderChart({
